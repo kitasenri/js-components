@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+
+.toggleSelect {
+    margin-left: 0px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.list-common {
+    display: table;
+    float: left;
+    margin-right: -1px;
+    margin-bottom: 6px;
+    margin-top: 3px;
+    min-width: 100px;
+}
+
+.toggleSelect li:first-child span {
+	-moz-border-top-left-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-moz-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.toggleSelect li:last-child span {
+	-moz-border-top-right-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	-moz-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.toggleSelect li span {
+	display:block;
+	cursor:pointer;
+	height:28px;
+	padding:0 10px;
+	padding-top:10px;
+	border:1px #999 solid;
+	font-size:13px;
+	text-align:center;
+	vertical-align:middle;
+	white-space:nowrap;
+	background-image:-moz-linear-gradient(33% 104% 90deg,#e7e7e7 0%,#fff 30%,#fff 100%);
+	background-image:-webkit-gradient(linear,33% 104%,33% 0%,color-stop(0,#e7e7e7),color-stop(0.3,#fff),color-stop(1,#fff));
+	background-image:-webkit-linear-gradient(90deg,#e7e7e7 0%,#fff 30%,#fff 100%);
+	background-image:-ms-linear-gradient(0deg,#e7e7e7 0%,#fff 30%,#fff 100%);
+	background-image:linear-gradient(0deg,#e7e7e7 0%,#fff 30%,#fff 100%);
+}
+
+.toggleSelect li span:hover {
+    background-image: -moz-linear-gradient(19% 103% 0deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+    background-image: -webkit-gradient(linear,19% 103%,19% 6%,color-stop(0,#86bee4),color-stop(0.3,#c9e2f3),color-stop(1,#f6fafd));
+    background-image: -webkit-linear-gradient(90deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+    background-image: -ms-linear-gradient(0deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+    background-image: linear-gradient(0deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+}
+
+.toggleSelect li .list-on,
+.toggleSelect li .list-on:hover,
+.toggleSelect li .list-on:active {
+    color: #FFF;
+    background-image: -moz-linear-gradient(50% 0% -90deg,#1345a2 0%,#448ee1 100%);
+    background-image: -webkit-gradient(linear,50% 0%,50% 100%,color-stop(0,#1345a2),color-stop(1,#448ee1));
+    background-image: -webkit-linear-gradient(-90deg,#1345a2 0%,#448ee1 100%);
+    background-image: -ms-linear-gradient(180deg,#1345a2 0%,#448ee1 100%);
+    background-image: linear-gradient(180deg,#1345a2 0%,#448ee1 100%);
+}
+
