@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+.toggleSelect-multi {
+    margin-left: 0px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.list-common-multi {
+    display: table;
+    float: left;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 6px;
+    margin-top: 3px;
+    min-width: 110px;
+}
+
+.toggleSelect-multi li span {
+    display:block;
+    position:relative;
+    height:28px;
+    cursor:pointer;
+    padding-top:10px;
+    border:1px #999 solid;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    color:#333;
+    font-size:13px;
+    text-align:center;
+    vertical-align:middle;
+    white-space:nowrap;
+    background-image:-moz-linear-gradient(19% 103% 90deg,#c9c9c9 0%,#f1f1f1 30%,#fff 100%);
+    background-image:-webkit-gradient(linear,19% 103%,19% 6%,color-stop(0,#c9c9c9),color-stop(0.3,#f1f1f1),color-stop(1,#fff));
+    background-image:-webkit-linear-gradient(0deg,#c9c9c9 0%,#f1f1f1 30%,#fff 100%);
+    background-image:-ms-linear-gradient(0deg,#c9c9c9 0%,#f1f1f1 30%,#fff 100%);
+    background-image:linear-gradient(0deg,#c9c9c9 0%,#f1f1f1 30%,#fff 100%);
+}
+
+.toggleSelect-multi li span:hover {
+    background-image: -moz-linear-gradient(19% 103% 0deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+    background-image: -webkit-gradient(linear,19% 103%,19% 6%,color-stop(0,#86bee4),color-stop(0.3,#c9e2f3),color-stop(1,#f6fafd));
+    background-image: -webkit-linear-gradient(90deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+    background-image: -ms-linear-gradient(0deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+    background-image: linear-gradient(0deg,#86bee4 0%,#c9e2f3 30%,#f6fafd 100%);
+}
+
+.toggleSelect-multi li .list-on-multi,
+.toggleSelect-multi li .list-on-multi:active {
+	border:1px #338915 solid;
+	color:#fff;
+	vertical-align:middle;
+	background-image:-moz-linear-gradient(45% 107% 90deg,#337309 0%,#338915 14%,#32a725 100%);
+	background-image:-webkit-gradient(linear,45% 107%,45% 9%,color-stop(0,#337309),color-stop(0.14,#338915),color-stop(1,#32a725));
+	background-image:-webkit-linear-gradient(0deg,#337309 0%,#338915 14%,#32a725 100%);
+	background-image:-ms-linear-gradient(0deg,#337309 0%,#338915 14%,#32a725 100%);
+	background-image:linear-gradient(0deg,#337309 0%,#338915 14%,#32a725 100%);
+
+}
+
+.toggleSelect-multi li .list-on-multi:hover {
+    border: 1px #32a725 solid;
+    vertical-align: middle;
+    background-image: -moz-linear-gradient(62% 100% 90deg,#569c27 0%,#aaeba3 100%);
+    background-image: -webkit-gradient(linear,62% 100%,62% 4%,color-stop(0,#569c27),color-stop(1,#aaeba3));
+    background-image: -webkit-linear-gradient(0deg,#569c27 0%,#aaeba3 100%);
+    background-image: -ms-linear-gradient(0deg,#569c27 0%,#aaeba3 100%);
+    background-image: linear-gradient(0deg,#569c27 0%,#aaeba3 100%);
+}
+
+.toggleSelect-multi li .list-on-multi img {
+	position: absolute;
+	left: 8px;
+	top: 12px;
+}
