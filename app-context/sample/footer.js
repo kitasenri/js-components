@@ -14,10 +14,10 @@
         el: 'footer',
 
         messages: {
-            'MY_PROF' : 'Page1です。',
-            'MY_BOOK' : 'Page2です。',
-            'MY_PLAN' : 'Page3です。',
-            'COMPONENT' : 'Page4です。'
+            'Page1' : 'Page1です。',
+            'Page2' : 'Page2です。',
+            'Page3' : 'Page3です。',
+            'Page4' : 'Page4です。'
         },
 
         //------------------------------------------------

@@ -8,26 +8,26 @@ $(window).load(
         //------------------------------------------------
         // backbone custom plugin
         //------------------------------------------------
-	    var f = applicationContext.facade;
+        var f = window.context;
 
         //------------------------------------------------
         // create header & footer
         //------------------------------------------------
 	    // View
         var headerView = new app.view.HeaderView();
-        f.registerView( headerView );
+        f.registerComponent( headerView );
 
         var footerView = new app.view.FooterView();
-        f.registerView( footerView );
+        f.registerComponent( footerView );
 
         //------------------------------------------------
         // create router
         //------------------------------------------------
         // Router
         var router = new app.router.MyRouterView();
-        f.registerView( router );
-        Backbone.history.start();
+        f.registerComponent( router );
 
+        Backbone.history.start();
     }
 
 );

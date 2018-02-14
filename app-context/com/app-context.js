@@ -1,16 +1,11 @@
 
 ;(function( window ) {
 
-    // add extension
-    window.applicationContext = window.applicationContext || {};
-
-    applicationContext.facade = new function() {
+    window.context = new function() {
 
         //--------------------------------------------------
         // consts
         //--------------------------------------------------
-        // extension name
-        var EXTENSION_NAME = "facade";
         // send message
         var SEND_FUNCTION_NAME = "sendMessage";
         // listener name
@@ -39,7 +34,7 @@
             // error check
             if ( !classInstance ) {
                 throw new Error( "NULL classRef is registerred to com." );
-            } else {}
+            }
 
             // inject object
             _injectObject( classInstance );
@@ -58,10 +53,10 @@
          * @param Param parameter
          * @param option option
          */
-        this[ SEND_FUNCTION_NAME ] = function( messageName, param, option ) {
+        this[SEND_FUNCTION_NAME] = function( messageName, param, option ) {
 
             // loop view map
-        	var length = _comMap.length;
+            var length = _comMap.length;
             for ( var ii = 0 ; ii < length ; ii++ ) {
 
                 var view = _comMap[ ii ];
@@ -69,13 +64,13 @@
                 var listenerNum = (listeners != null) ? listeners.length : 0;
 
                 // loop listener name
-                for ( var ii = 0 ; ii < listenerNum ; ii++ ) {
+                for ( var jj = 0 ; jj < listenerNum ; jj++ ) {
 
-                    var listener = listeners[ii];
+                    var listener = listeners[jj];
                     if ( listener == messageName ) {
-                        view[ HANDLE_FUNCTION_NAME ]( messageName, param, option );
+                        view[HANDLE_FUNCTION_NAME]( messageName, param, option );
                         break;
-                    } else {}
+                    }
 
                 }
 
@@ -93,8 +88,6 @@
          */
         var _injectObject = function( instance ) {
             // set message name
-            instance[ EXTENSION_NAME ] = this;
-            // set message name
             instance[ SEND_FUNCTION_NAME ] = _sendMessage;
         };
 
@@ -106,12 +99,12 @@
          */
         var _sendMessage = function( targetObj, methodName ) {
             var t = targetObj;
-            var f = targetObj[methodName];
+            var f = methodName;
             var retFunc = function() {
-                f.apply( t, arguments );
+                return t[f].apply( t, arguments );
             };
             return retFunc;
-        }( this, SEND_FUNCTION_NAME );
+        }(this, SEND_FUNCTION_NAME);
 
     };
 

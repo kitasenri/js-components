@@ -13,10 +13,10 @@
         //------------------------------------------------
         routes : {
             ''          : 'index',
-            'MyProfile' : 'myprof',
-            'MyBook'    : 'mybook',
-            'MyPlan'    : 'myplan',
-            'Component' : 'Component',
+            'Page1'     : 'page1',
+            'Page2'     : 'page2',
+            'Page3'     : 'page3',
+            'Page4'     : 'page4',
         },
 
         lastSelectedItem : null,
@@ -25,50 +25,50 @@
         // Implementation
         //------------------------------------------------
         /**
-         * ルート選択
+         * Root page
          */
         index : function index() {
-            this.showView( $("#MyProfile") );
-            this.sendMessage( message.SET_GUIDEMESSAGE, "MY_PROF" );
+            this.showView( $("#Page1") );
+            this.sendMessage( message.SET_GUIDEMESSAGE, "Page1" );
         },
 
         /**
-         * プロフィール選択
+         * Page1
          */
-        myprof : function myprof() {
-            this.showView( $("#MyProfile") );
-            this.sendMessage( message.SET_GUIDEMESSAGE, "MY_PROF" );
+        page1 : function page1() {
+            this.showView( $("#Page1") );
+            this.sendMessage( message.SET_GUIDEMESSAGE, "Page1" );
         },
 
         /**
-         * MyBook選択
+         * Page2
          */
-        mybook : function mybook() {
-            this.showView( $("#MyBook") );
-            this.sendMessage( message.SET_GUIDEMESSAGE, "MY_BOOK" );
+        page2 : function page2() {
+            this.showView( $("#Page2") );
+            this.sendMessage( message.SET_GUIDEMESSAGE, "Page2" );
         },
 
         /**
-        * MyPlan選択
-        */
-        myplan : function myplan() {
-           this.showView( $("#MyPlan") );
-           this.sendMessage( message.SET_GUIDEMESSAGE, "MY_PLAN" );
+         * Page3
+         */
+        page3 : function page3() {
+           this.showView( $("#Page3") );
+           this.sendMessage( message.SET_GUIDEMESSAGE, "Page3" );
        },
 
-        /**
-        * CustomComponent選択
+       /**
+        * Page4
         */
-       Component : function component() {
-           this.showView( $("#Component") );
-           this.sendMessage( message.SET_GUIDEMESSAGE, "COMPONENT" );
+       page4 : function page4() {
+           this.showView( $("#Page4") );
+           this.sendMessage( message.SET_GUIDEMESSAGE, "Page4" );
        },
 
        //------------------------------------------------
        // Implementation
        //------------------------------------------------
        /**
-        * 表示する画面を切り替える
+        * Change view
         *
         * @param view
         */
@@ -81,7 +81,6 @@
            view.show( 200 );
            this.lastSelectedItem = view;
        }
-
 
     });
 
