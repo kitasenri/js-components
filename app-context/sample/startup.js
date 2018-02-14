@@ -3,7 +3,7 @@
  * アプリケーション初期化処理
  */
 $(window).load(
-	function() {
+    function() {
 
         //------------------------------------------------
         // backbone custom plugin
@@ -13,7 +13,7 @@ $(window).load(
         //------------------------------------------------
         // create header & footer
         //------------------------------------------------
-	    // View
+        // View
         var headerView = new app.view.HeaderView();
         f.registerComponent( headerView );
 

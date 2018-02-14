@@ -38,6 +38,19 @@ com.utils.CommonUtils = new function() {
         return $.extend( true, dst, src );
     };
 
+    this.getIntValue = function( value ) {
+
+        var retval = null;
+        if ( value instanceof String ) {
+            retval = parseInt( value );
+        } else if ( typeof value == 'number' ) {
+            retval = value;
+        } else {
+            retval = 0;
+        }
+
+        return retval;
+    };
 
 };
 

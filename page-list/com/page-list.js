@@ -1,10 +1,7 @@
 ;(function( window ) {
 
-    //-----------------------------------------------------------------
-    // Class info
-    //-----------------------------------------------------------------
+
     window.com = window.com || {};
-    window.com.helper = window.com.helper || {};
 
     //-----------------------------------------------------------------
     // Consts
@@ -14,12 +11,12 @@
     // index change event
     var EVENTNAME_INDEXCHANGED = 'IndexChanged';
 
-    // parent 
+    // parent
     var TEMPLETE_UL = '<ul>';
     // back button
-    var TEMPLETE_BACK = '<li class="cursor" id="page-back"><a class="goto_back"> </a></li>';
+    var TEMPLETE_BACK = '<li class="cursor" id="page-back"><a class="goto_back">&lt;&lt;</a></li>';
     // next button
-    var TEMPLETE_NEXT = '<li class="cursor" id="page-next"><a class="goto_next"> </a></li>';
+    var TEMPLETE_NEXT = '<li class="cursor" id="page-next"><a class="goto_next">&gt;&gt;</a></li>';
     // page button
     var TEMPLETE_PAGE = '<li class="cursor" data-filter-type="page" data-value="%page"><a class="goto">%page</a></li>';
 
@@ -28,22 +25,22 @@
     //-----------------------------------------------------------------
     /**
      * constructor
-     * 
+     *
      * @param option option info
-     */ 
-    com.helper.PageHelper = function( option ) {
+     */
+    window.com.PageHelper = function( option ) {
 
         if ( !option.rootID ) {
-            throw new Error('(ERROR) com.helper.PageHelper, input value option.root doesn\'t specified.');
-        } else {}
+            throw new Error('(ERROR) PageHelper, input value option.root doesn\'t specified.');
+        }
 
         //-----------------------------------------------------------------
         // property / ref
         //-----------------------------------------------------------------
         // root container
-        var $root = $( com.utils.jQueryUtils.getSerializeID(option.rootID) );
+        var $root = $( option.rootID );
         // page index container
-        var $pageIndexContainer = $( com.utils.jQueryUtils.getSerializeID(option.indexID) );
+        var $pageIndexContainer = $( option.indexID );
 
         // ul
         var $ul = $( TEMPLETE_UL );
@@ -75,13 +72,15 @@
         //-----------------------------------------------------------------
         // lifecycle
         //-----------------------------------------------------------------
-        /** 
+        /**
          * initialize
          */
         this._init = function() {
 
             // create structure
-            $root.append( $ul );
+            $root.append( $ul )
+                 .addClass( 'pagination' );
+
             // back button
             $ul.append( $backPage );
 
@@ -104,15 +103,15 @@
             this.setPageNumber( option.initPage || 1, true );
 
             // append event
-            $backPage.click( com.utils.CommonUtils.bind('backButtonClickedHandler', this) );
-            $nextPage.click( com.utils.CommonUtils.bind('nextButtonClickedHandler', this) );
-            $pageButton.click( com.utils.CommonUtils.bind('pageButtonClickedHandler', this) );
-            
+            $backPage.click( com.utils.CommonUtils.bind(this, 'backButtonClickedHandler') );
+            $nextPage.click( com.utils.CommonUtils.bind(this, 'nextButtonClickedHandler') );
+            $pageButton.click( com.utils.CommonUtils.bind(this, 'pageButtonClickedHandler') );
+
             // set page index
             this.updatePageNumber();
         };
-        
-        /** 
+
+        /**
          * remove page component
          */
         this.destroy = function() {
@@ -128,9 +127,9 @@
             $ul.remove();
         };
 
-        /** 
+        /**
          * Add index change event listener
-         * 
+         *
          * @param handler
          */
         this.addIndexChangeListener = function( handler ) {
@@ -140,7 +139,7 @@
         //-----------------------------------------------------------------
         // method
         //-----------------------------------------------------------------
-        /** 
+        /**
          * Set page number
          */
         this.updatePageNumber = function() {
@@ -155,7 +154,7 @@
                 var lastPageCount = _pagePerCount * pageNumber;
                 if ( allCount < lastPageCount ) {
                     lastPageCount = allCount;
-                } else {}
+                }
 
                 var pageText = firstPageCount + ' to ' + lastPageCount + ' of ' + allCount + ' results';
                 $pageIndexContainer.text( pageText );
@@ -168,18 +167,18 @@
 
         };
 
-        /** 
+        /**
          * Page number
-         * 
+         *
          * @return page number
          */
         this.getPageNumber = function() {
             return (_lastSelectedButton != null) ? _lastSelectedButton.data('value') : -1;
         };
 
-        /** 
+        /**
          * set page index
-         * 
+         *
          * @param index new page index
          */
         this.setPageNumber = function( index, initF ) {
@@ -187,12 +186,12 @@
             var cp = this.getPageNumber();
             if ( index == cp ) {
                 return;
-            } else {}
+            }
 
             if ( _lastSelectedButton != null ) {
                 _lastSelectedButton.find('a').removeClass( CLASSNAME_ACTIVE );
                 _lastSelectedButton = null;
-            } else {}
+            }
 
             // refresh page
             $pageButton.each(
@@ -202,19 +201,19 @@
                     if ( index == pageIndex ) {
                         $page.find('a').addClass( CLASSNAME_ACTIVE );
                         _lastSelectedButton = $page;
-                    } else {}
+                    }
                 }
             );
 
             if ( !initF ) {
                 // dispatch init event or not.
                 $root.trigger( EVENTNAME_INDEXCHANGED, [index] );
-            } else {}
+            }
 
             this.adjustPageStatus( index );
         };
 
-        /** 
+        /**
          * Adjust page status
          */
         this.adjustPageStatus = function( selectedPage ) {
@@ -238,7 +237,7 @@
 //                $nextPage.show();
 //            }
 
-            $pageButton.each( 
+            $pageButton.each(
                 function( ii, dom ) {
 
                     var $page = $(dom);
@@ -277,47 +276,47 @@
         //-----------------------------------------------------------------
         // event handler
         //-----------------------------------------------------------------
-        /** 
+        /**
          * Back button clicked handler
-         * 
+         *
          * @param event MouseEvent
          */
         this.backButtonClickedHandler = function( event ) {
 
             if ( _maxPage <= 1 ) {
                 return;
-            } else {}
+            }
 
             var index = this.getPageNumber();
             if ( 1 < index ) {
                 this.setPageNumber( index - 1 );
-            } else {}
+            }
 
             this.updatePageNumber();
         };
 
-        /** 
+        /**
          * Next button clicked handler
-         * 
+         *
          * @param event MouseEvent
          */
         this.nextButtonClickedHandler = function( event ) {
 
             if ( _maxPage <= 1 ) {
                 return;
-            } else {}
+            }
 
             var index = this.getPageNumber();
             if ( index < _maxPage ) {
                 this.setPageNumber( index + 1 );
-            } else {}
+            }
 
             this.updatePageNumber();
         };
 
-        /** 
+        /**
          * Page button clicked handler
-         * 
+         *
          * @param event MouseEvent
          */
         this.pageButtonClickedHandler = function( event ) {
@@ -333,10 +332,11 @@
         //-----------------------------------------------------------------
         // private
         //-----------------------------------------------------------------
-        (function( that ) {
+        (function(that) {
             that._init();
-        })( this );
+        })(this);
 
     };
+
 
 })( window );
