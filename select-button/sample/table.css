@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.tableMargin {
+    margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.tableSpace {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.tablePadding {
+    padding: 6px 6px 6px 6px;
+}
+
+.columnYellow {
+    background-color: #fff5c8;
+    width: 100px;
+}
+.columnWhite {
+    background-color: #ffffff;
+}
+.columnBlue {
+    background-color: #d0e8f8;
+    width: 240px;
+}
+
+.column {
+    border-top-style: none;
+    padding: 2px;
+    border: 1px #999 solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.responsible-table {
+	width: 420px;
+}
+
+.full-table {
+    width: 930px;
+}
+
+@media screen and (max-width: 399px) {
+
+	.responsible-table {
+	    width: 380px;
+	}
+
+}

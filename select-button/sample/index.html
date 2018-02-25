@@ -1,0 +1,140 @@
+﻿<html>
+
+    <head>
+
+        <title>Component</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.75, user-scalable=no">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <link href="./../com/multi-select-button.css" rel="stylesheet">
+        <link href="./../com/single-select-button.css" rel="stylesheet">
+
+        <!-- Lib -->
+        <script src="./../../lib/jquery-2.1.4.js"></script>
+        <script src="./../../lib/underscore.js"></script>
+        <script src="./../../lib/backbone.js"></script>
+
+        <!-- Utils -->
+        <script src="./../../utils/common-utils.js"></script>
+        <script src="./../../utils/jquery-utils.js"></script>
+
+        <link href="./app.css" rel="stylesheet">
+        <link href="./table.css" rel="stylesheet">
+
+        <script src="./../com/select-item-helper.js"></script>
+        <script src="./../com/single-select-button.js"></script>
+        <script src="./../com/multi-select-button.js"></script>
+
+        <script src="./mycustom.js"></script>
+        <script src="./startup.js"></script>
+
+    </head>
+
+    <body>
+
+        <section>
+            <article id="Component">
+
+                <div>
+                    <div class="spacer">
+                        <span style="color: #0088FF;">Custom Component1</span><br />
+
+                        <table class="tableSpace tablePadding">
+                            <tbody>
+                                <tr>
+                                    <td class="column columnBlue">
+                                        SampleComponent
+                                    </td>
+                                    <td class="column columnWhite">
+                                        <ul id="test"></ul><br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="column columnBlue">
+                                        Sample Code
+                                    </td>
+                                    <td class="column columnWhite">
+                                        var option = { rootID : '#test' };<br />
+                                        this.selectButton = new helper.select.SingleSelectButton(option);<br />
+                                        <br />
+                                        var dataProvider = [<br />
+                                            { 'label' : '日曜日', 'value' : 'Sunday' },<br />
+                                            { 'label' : '月曜日', 'value' : 'Monday' },<br />
+                                            { 'label' : '火曜日', 'value' : 'Tuesday' },<br />
+                                            { 'label' : '水曜日', 'value' : 'Wednesday' },<br />
+                                            { 'label' : '木曜日', 'value' : 'Thursday' },<br />
+                                            { 'label' : '金曜日', 'value' : 'Friday' },<br />
+                                            { 'label' : '土曜日', 'value' : 'Saturday' }<br />
+                                        ];<br />
+                                        <br />
+                                        this.selectButton.setDataProvider( dataProvider );<br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="column columnBlue">
+                                        Summary
+                                    </td>
+                                    <td class="column columnWhite">
+                                        ToggleButtonのサンプルです。<br/>
+                                        マスタデータなどをJSONオブジェクト配列として渡すことで、動的にToggleButtonを作成することが可能です。<br/>
+                                        一部のブラウザでサポートされているWebComponentsを意識し、css、jsを分離して作成しています。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="spacer">
+
+                        <span style="color: #0088FF;">Custom Component2</span><br />
+                        <table width="100%" class="tableSpace tablePadding">
+                            <tbody>
+                                <tr>
+                                    <td class="column columnBlue">
+                                        SampleComponent
+                                    </td>
+                                    <td class="column columnWhite">
+                                        <ul id="testMulti"></ul><br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="column columnBlue">
+                                        Sample Code
+                                    </td>
+                                    <td class="column columnWhite">
+                                        var option = {<br />
+                                            rootID : '#testMulti',<br />
+                                            maxCount : 3,<br />
+                                            selectIcon : './checkYellow.png'<br />
+                                        };<br />
+                                        this.selectMultiButton = new helper.select.MultiSelectButton(option);<br />
+                                        this.selectMultiButton.setDataProvider( this.singleButtonDataProvider );<br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="column columnBlue">
+                                        Summary
+                                    </td>
+                                    <td class="column columnWhite">
+                                        Custom Component1を少し拡張し、複数選択できるようにしたコンポーネントのサンプルです。<br/>
+                                        当該サンプルもJSONオブジェクトをセットすることで、動的にボタンを生成（選択可能数を指定）できます。<br/>
+                                        此方もWebComponentsを意識して実装しており、MVCフレームワークに依存しておりません。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+
+    </body>
+
+</html>
